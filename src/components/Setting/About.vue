@@ -1,7 +1,9 @@
 <template>
     <div class="nexmoe-setting">
       <ul>
-        2333
+        <li>作者：折影轻梦</li>
+        <li>QQ群：797996017</li>
+        <li>联系QQ：776194970</li>
       </ul>
     </div>
 </template>
