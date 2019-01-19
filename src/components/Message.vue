@@ -4,7 +4,7 @@
         <div class="nexmoe-author">
           <div class="nexmoe-avatar"><img :src="item.avatar"></div>
           <div class="nexmoe-name">{{ item.name }}</div>
-          <div class="nexmoe-s"><span>2019年1月19日</span> <span>回复</span></div>
+          <div class="nexmoe-s">776194970</div>
         </div>
         <div class="nexmoe-category">
           # {{ item.category }}
@@ -22,7 +22,39 @@
             <div class="nexmoe-author">
               <div class="nexmoe-avatar"><img :src="item.avatar"></div>
               <div class="nexmoe-name">{{ item.name }}</div>
-              <div class="nexmoe-s">{{ item.qq }}</div>
+              <div class="nexmoe-s"><span>2019年1月19日</span> <span>回复</span></div>
+            </div>
+            <div class="nexmoe-text">
+              2333
+            </div>
+            <ul>
+          <li>
+            <div class="nexmoe-author">
+              <div class="nexmoe-avatar"><img :src="item.avatar"></div>
+              <div class="nexmoe-name">{{ item.name }}</div>
+              <div class="nexmoe-s"><span>2019年1月19日</span> <span>回复</span></div>
+            </div>
+            <div class="nexmoe-text">
+              2333
+            </div>
+          </li>
+          <li>
+            <div class="nexmoe-author">
+              <div class="nexmoe-avatar"><img :src="item.avatar"></div>
+              <div class="nexmoe-name">{{ item.name }}</div>
+              <div class="nexmoe-s"><span>2019年1月19日</span> <span>回复</span></div>
+            </div>
+            <div class="nexmoe-text">
+              2333
+            </div>
+          </li>
+        </ul>
+          </li>
+          <li>
+            <div class="nexmoe-author">
+              <div class="nexmoe-avatar"><img :src="item.avatar"></div>
+              <div class="nexmoe-name">{{ item.name }}</div>
+              <div class="nexmoe-s"><span>2019年1月19日</span> <span>回复</span></div>
             </div>
             <div class="nexmoe-text">
               2333
@@ -91,16 +123,31 @@ export default {
   #nexmoe-content .nexmoe-comment {
     background-color: #fff;
   }
+  #nexmoe-content .nexmoe-comment .nexmoe-author {
+    height: 42px;
+  }
+  #nexmoe-content .nexmoe-name,
+  #nexmoe-content .nexmoe-s {
+    margin-top: 0;
+  }
   #nexmoe-content .nexmoe-comment ul {
     list-style: none;
     padding-left: 0; 
     margin: 0;
   }
+  #nexmoe-content .nexmoe-comment ul ul {
+    padding-left: 52px; 
+  }
   #nexmoe-content .nexmoe-comment ul li {
     padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  #nexmoe-content .nexmoe-comment ul ul li {
+    padding-bottom: 0;
+    border-bottom: none;
   }
   #nexmoe-content .nexmoe-comment ul .nexmoe-text {
-    padding-left: 76px;
+    padding-left: 62px;
     margin-top: -10px;
   }
 </style>

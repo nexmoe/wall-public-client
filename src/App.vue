@@ -48,7 +48,7 @@
     height: 46px;
     background-color: #fff;
     width: 100%;
-    border-bottom: 1px solid #ececec;
+    border-bottom: 1px solid #eee;
     padding: 0 10px;
     box-sizing: border-box;
   }
