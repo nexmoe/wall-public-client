@@ -1,12 +1,7 @@
 <template>
-    <div class="nexmoe-setting">
-      <ul>
-        <li><router-link tag="a" to="">2333</router-link></li>
-      </ul>
-      <ul>
-        <li><router-link tag="a" to="/setting/about">关于程序</router-link></li>
-      </ul>
-    </div>
+  <div id="nexmoe-content">
+    <router-view />
+  </div>
 </template>
 
 <script>

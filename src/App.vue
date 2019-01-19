@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header />
+    <Header/>
     <keep-alive>
       <router-view v-if="$route.meta.keepAlive" />
     </keep-alive>
@@ -60,6 +60,7 @@
     position: relative;
     display: inline-block;
     margin-right: 10px;
+    color: #000;
   }
 
   .nexmoe-tab a.router-link-exact-active {
