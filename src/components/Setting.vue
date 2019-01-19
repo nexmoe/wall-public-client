@@ -30,5 +30,7 @@
 }
 #nexmoe-content .nexmoe-setting ul li a {
     color: #000;
+    width: 100%;
+    display: block;
 }
 </style>
