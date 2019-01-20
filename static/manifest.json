@@ -1,15 +1,24 @@
 {
-    "name": "一中墙",
-    "short_name": "一中墙",
-    "start_url": "/index.html",
-    "display": "standalone",
-    "background_color": "#fff",
-    "theme_color": "#f4a8ba",
-    "icons": [
-      {
-        "src": "/static/image/icon/144.png",
-        "sizes": "144x144",
-        "type": "image/png"
-      }
-    ]
-  }
+  "id": "wall",
+  "name": "一中墙",
+  "short_name": "一中墙",
+  "version": {
+    "name": "1.0",
+    "code": "9.1.20"
+  },
+  "launch_path": "/index.html",
+  "developer": {
+    "name": "折影轻梦",
+    "email": "776194970",
+    "url": "https://nexmoe.com/"
+  },
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#f4a8ba",
+  "icons": [{
+    "src": "/static/image/icon/144.png",
+    "sizes": "144x144",
+    "type": "image/png"
+  }]
+}
