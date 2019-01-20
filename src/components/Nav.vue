@@ -38,6 +38,11 @@
         }
       }
     },
+    watch: {
+      $route(to, from) {
+        this.formappear = false;
+      }
+    }
   }
 
 </script>

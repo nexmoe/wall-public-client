@@ -4,6 +4,8 @@
         <li>作者：折影轻梦</li>
         <li>QQ群：797996017</li>
         <li>联系QQ：776194970</li>
+        <li>Github：https://github.com/nexmoe/wall-public</li>
+        <li>版权协议：MIT</li>
       </ul>
     </div>
 </template>
