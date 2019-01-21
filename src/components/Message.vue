@@ -71,7 +71,13 @@ export default {
   data () {
     return {
       item: 
-        {avatar:'https://avatar.dawnlab.me/qq/776194970',name:'折影轻梦',qq:'776194970',category:'这是一个分类',article:'😂这是一段内容'}
+        {avatar:'https://avatar.dawnlab.me/qq/776194970',name:'折影轻梦',qq:'776194970',category:'这是一个分类',article:'😂这是一段内容'}，
+      comments: [
+        {avatar:'https://avatar.dawnlab.me/qq/776194970',name:'折影轻梦',qq:'2019年1月19日',category:'这是一个分类',article:'这是一段内容'},
+        {avatar:'https://avatar.dawnlab.me/qq/776194970',name:'折影轻梦',qq:'2019年1月19日',category:'这是一个分类',article:'这是一段内容'},
+        {avatar:'https://avatar.dawnlab.me/qq/776194970',name:'折影轻梦',qq:'2019年1月19日',category:'这是一个分类',article:'这是一段内容'},
+        {avatar:'https://avatar.dawnlab.me/qq/776194970',name:'折影轻梦',qq:'2019年1月19日',category:'这是一个分类',article:'这是一段内容'}
+      ]
     }
   },
   scrollBehavior (to, from, savedPosition) {
