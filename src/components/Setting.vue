@@ -22,7 +22,7 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    margin-bottom: 10px; 
+    margin-top: 10px; 
 }
 #nexmoe-content .nexmoe-setting ul li {
     padding: 10px;
@@ -31,6 +31,7 @@
 #nexmoe-content .nexmoe-setting ul li a {
     color: #000;
     width: 100%;
+    height: 100%;
     display: block;
 }
 </style>
