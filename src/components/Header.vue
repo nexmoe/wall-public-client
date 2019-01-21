@@ -1,10 +1,10 @@
 <template>
   <div id="nexmoe-header">
-    <div class="nexmoe-tab" v-if="$route.matched[0].path !== '/message/:id'&& $route.matched[0].path != '/setting'">
+    <div class="nexmoe-tab" v-if="$route.matched[0].path == ''">
       <router-link tag="a" to="/">最新</router-link>
       <router-link tag="a" to="/time">时间块</router-link>
     </div>
-    <div class="nexmoe-tab" v-if="$route.matched[0].path == '/message/:id' || $route.matched[0].path == '/setting'">
+    <div class="nexmoe-tab" v-if="$route.matched[0].path !== ''">
       <a v-on:click="$router.back(-1)"><i class="nexmoefont icon-arrowleft"></i> 返回</a>
     </div>
   </div>
@@ -37,6 +37,7 @@
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 10;
   }
 
   a {

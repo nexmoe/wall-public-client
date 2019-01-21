@@ -14,6 +14,7 @@ export default new Router({
   mode: 'history',
   routes: [
     { path: '/', component: Home, meta: {keepAlive: true, title: '一中墙'} },
+    { path: '/edit', component: Edit, meta: {keepAlive: true, title: '一中墙'} },
     { path: '/edit/:id', component: Edit, meta: {keepAlive: true, title: '一中墙'} },
     { path: '/message/:id', component: Message, meta: {keepAlive: true, title: '一中墙'} },
     { path: '/setting', component: Setting, meta: {keepAlive: true, title: '一中墙'},
