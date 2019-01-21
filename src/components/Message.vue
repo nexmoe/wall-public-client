@@ -17,47 +17,15 @@
         <div class="nexmoe-tab">
           <router-link tag="a" to="/message/233">评论 23</router-link>
         </div>
-        <ul>
+        <ul v-for="comment in comments" :key="comment.time">
           <li>
             <div class="nexmoe-author">
-              <div class="nexmoe-avatar"><img :src="item.avatar"></div>
-              <div class="nexmoe-name">{{ item.name }}</div>
-              <div class="nexmoe-s"><span>2019年1月19日</span> <span>回复</span></div>
+              <div class="nexmoe-avatar"><img :src="comment.avatar"></div>
+              <div class="nexmoe-name">{{ comment.name }}</div>
+              <div class="nexmoe-s"><span>{{ comment.date }}</span> <span>回复</span></div>
             </div>
             <div class="nexmoe-text">
-              2333
-            </div>
-            <ul>
-          <li>
-            <div class="nexmoe-author">
-              <div class="nexmoe-avatar"><img :src="item.avatar"></div>
-              <div class="nexmoe-name">{{ item.name }}</div>
-              <div class="nexmoe-s"><span>2019年1月19日</span> <span>回复</span></div>
-            </div>
-            <div class="nexmoe-text">
-              2333
-            </div>
-          </li>
-          <li>
-            <div class="nexmoe-author">
-              <div class="nexmoe-avatar"><img :src="item.avatar"></div>
-              <div class="nexmoe-name">{{ item.name }}</div>
-              <div class="nexmoe-s"><span>2019年1月19日</span> <span>回复</span></div>
-            </div>
-            <div class="nexmoe-text">
-              2333
-            </div>
-          </li>
-        </ul>
-          </li>
-          <li>
-            <div class="nexmoe-author">
-              <div class="nexmoe-avatar"><img :src="item.avatar"></div>
-              <div class="nexmoe-name">{{ item.name }}</div>
-              <div class="nexmoe-s"><span>2019年1月19日</span> <span>回复</span></div>
-            </div>
-            <div class="nexmoe-text">
-              2333
+              {{ comment.text }}
             </div>
           </li>
         </ul>
@@ -73,10 +41,10 @@ export default {
       item: 
         {avatar:'https://avatar.dawnlab.me/qq/776194970',name:'折影轻梦',qq:'776194970',category:'这是一个分类',article:'😂这是一段内容'}，
       comments: [
-        {avatar:'https://avatar.dawnlab.me/qq/776194970',name:'折影轻梦',qq:'2019年1月19日',category:'这是一个分类',article:'这是一段内容'},
-        {avatar:'https://avatar.dawnlab.me/qq/776194970',name:'折影轻梦',qq:'2019年1月19日',category:'这是一个分类',article:'这是一段内容'},
-        {avatar:'https://avatar.dawnlab.me/qq/776194970',name:'折影轻梦',qq:'2019年1月19日',category:'这是一个分类',article:'这是一段内容'},
-        {avatar:'https://avatar.dawnlab.me/qq/776194970',name:'折影轻梦',qq:'2019年1月19日',category:'这是一个分类',article:'这是一段内容'}
+        {avatar:'https://avatar.dawnlab.me/qq/776194970',name:'折影轻梦',date:'2019年1月19日',text:'这是一段内容'},
+        {avatar:'https://avatar.dawnlab.me/qq/776194970',name:'折影轻梦',date:'2019年1月19日',text:'这是一段内容'},
+        {avatar:'https://avatar.dawnlab.me/qq/776194970',name:'折影轻梦',date:'2019年1月19日',text:'这是一段内容'},
+        {avatar:'https://avatar.dawnlab.me/qq/776194970',name:'折影轻梦',date:'2019年1月19日',text:'这是一段内容'}
       ]
     }
   },
