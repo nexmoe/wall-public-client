@@ -5,9 +5,7 @@
       <router-view v-if="$route.meta.keepAlive" />
     </keep-alive>
     <router-view v-if="!$route.meta.keepAlive"></router-view>
-    <keep-alive>
-      <Nav v-if="$route.matched[0].path !== '/message/:id'"/>
-    </keep-alive>
+    <Nav v-if="$route.matched[0].path !== '/message/:id'"/>
   </div>
 </template>
 
