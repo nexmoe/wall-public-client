@@ -150,5 +150,6 @@ export default {
   #nexmoe-content .nexmoe-comment ul .nexmoe-text {
     padding-left: 62px;
     margin-top: -10px;
+    text-align: left;
   }
 </style>
