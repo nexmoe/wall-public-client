@@ -126,10 +126,12 @@ export default {
   }
   #nexmoe-content .nexmoe-comment .nexmoe-author {
     height: 42px;
+        padding-bottom: 0;
   }
   #nexmoe-content .nexmoe-name,
   #nexmoe-content .nexmoe-s {
     margin-top: 0;
+    line-height: 21px;
   }
   #nexmoe-content .nexmoe-comment ul {
     list-style: none;
