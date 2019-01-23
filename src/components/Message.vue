@@ -67,8 +67,19 @@ export default {
           ],
         },
         {avatar:'https://avatar.dawnlab.me/qq/776194970',name:'折影轻梦',date:'2019年1月19日',text:'这是一段内容'},
-        {avatar:'https://avatar.dawnlab.me/qq/776194970',name:'折影轻梦',date:'2019年1月19日',text:'这是一段内容'},
-        {avatar:'https://avatar.dawnlab.me/qq/776194970',name:'折影轻梦',date:'2019年1月19日',text:'这是一段内容'}
+        {
+          avatar:'https://avatar.dawnlab.me/qq/776194970',name:'折影轻梦',date:'2019年1月19日',text:'这是一段内容',
+          children:[
+            {avatar:'https://avatar.dawnlab.me/qq/776194970',
+              name:'折影轻梦',date:'2019年1月19日',text:'这是一段内容'},
+            {avatar:'https://avatar.dawnlab.me/qq/776194970',
+              name:'折影轻梦',date:'2019年1月19日',text:'这是一段内容'},
+            {avatar:'https://avatar.dawnlab.me/qq/776194970',
+              name:'折影轻梦',date:'2019年1月19日',text:'这是一段内容'},
+            {avatar:'https://avatar.dawnlab.me/qq/776194970',
+              name:'折影轻梦',date:'2019年1月19日',text:'这是一段内容'},
+          ],
+        }
       ]
     }
   },
