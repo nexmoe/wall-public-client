@@ -2,7 +2,7 @@
   <div id="nexmoe-nav">
     <ul class="nexmoe-nav">
       <li>
-        <router-link tag="a" to="/"><i class="nexmoefont icon-home"></i></router-link>
+        <router-link tag="a" to="/"><i class="nexmoefont icon-home"></i><i class="nexmoefont icon-home-fill"></i></router-link>
       </li>
       <li>
         <router-link tag="a" to="/edit" class="nexmoe-plus">
@@ -11,7 +11,7 @@
         </router-link>
       </li>
       <li>
-        <router-link tag="a" to="/setting/home"><i class="nexmoefont icon-user"></i></router-link>
+        <router-link tag="a" to="/setting/home"><i class="nexmoefont icon-people"></i><i class="nexmoefont icon-people-fill"></i></router-link>
       </li>
     </ul>
   </div>
@@ -21,14 +21,14 @@
   export default {
     data() {
       return {
-        
+
       }
     },
     methods: {
-    
+
     },
     watch: {
-      
+
     }
   }
 
@@ -80,16 +80,41 @@
     color: #f4a8ba;
   }
 
+  #nexmoe-nav .nexmoe-nav a.router-link-exact-active i:first-child,
+  #nexmoe-nav .nexmoe-nav a i:last-child {
+    display: none;
+  }
+
+  #nexmoe-nav .nexmoe-nav a i:first-child,
+  #nexmoe-nav .nexmoe-nav a.router-link-exact-active i:last-child {
+    display: block;
+  }
+
+  #nexmoe-nav .nexmoe-nav a.router-link-exact-active i:last-child {
+    display: block;
+    animation: zoom .2s ease-out;
+    animation-iteration-count: 1;
+  }
+
+  @keyframes zoom {
+    from {
+      transform: scale(.7);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
   #nexmoe-nav .nexmoe-nav .nexmoe-plus {
     transition: all .35s;
-    background-color: #f4a8ba;
+    background-color: #f099bb;
     color: #fff;
     width: 64px;
     border-radius: 100%;
     height: 64px;
     line-height: 64px;
     position: absolute;
-    border: 6px solid #fff;
+    border: 5px solid #fff;
     bottom: 0;
     left: calc(50% - 32px);
     box-shadow: 0 -4px 7px rgba(161, 177, 204, .2);
