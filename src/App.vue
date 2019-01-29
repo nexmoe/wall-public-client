@@ -37,7 +37,6 @@
     margin: 0;
     background-color: #f1f1f1;
     -webkit-tap-highlight-color:transparent;
-    zoom: 1.2;
     box-sizing: border-box;
     min-height: calc(100vh - 102px);
   }
