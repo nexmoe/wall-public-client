@@ -19,13 +19,14 @@
 <style>
 #nexmoe-content .nexmoe-setting ul {
     background-color: #fff;
-    margin: 0;
+    margin: 0 10px;
     padding: 0;
     list-style: none;
     margin-top: 10px; 
+    border-radius: 4px;
 }
 #nexmoe-content .nexmoe-setting ul li {
-    padding: 10px;
+    padding: 12px;
     border-bottom: 1px solid #eee;
 }
 #nexmoe-content .nexmoe-setting ul li a {
