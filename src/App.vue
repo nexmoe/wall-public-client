@@ -5,7 +5,7 @@
       <router-view v-if="$route.meta.keepAlive" />
     </keep-alive>
     <router-view v-if="!$route.meta.keepAlive"></router-view>
-    <Nav v-if="$route.matched[0].path !== '/message/:id'"/>
+    <Nav v-if="$route.matched[0].path !== '/message/:id' && $route.matched[0].path !== '/edit'"/>
   </div>
 </template>
 
@@ -36,7 +36,22 @@
   body {
     margin: 0;
     background-color: #f1f1f1;
-    -webkit-tap-highlight-color:transparent
+    -webkit-tap-highlight-color:transparent;
+    zoom: 1.2;
+    box-sizing: border-box;
+    min-height: calc(100vh - 102px);
+  }
+
+  @media screen and (min-width:960px) {
+    body,
+    #nexmoe-nav,
+    #nexmoe-header {
+      width: 420px!important;
+      margin: auto;
+    }
+    body {
+      box-shadow: 0 0 30px #ababab;
+    }
   }
 
   a {
@@ -63,13 +78,13 @@
   }
 
   .nexmoe-tab a.router-link-exact-active {
-    color: #f4a8ba;
+    color: #f099bb;
   }
 
   .nexmoe-tab a.router-link-exact-active::after {
-    color: #f4a8ba;
+    color: #f099bb;
     content: "";
-    background-color: #f4a8ba;
+    background-color: #f099bb;
     width: 100%;
     height: 3px;
     position: absolute;
