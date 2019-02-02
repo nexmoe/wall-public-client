@@ -96,13 +96,13 @@
     height: auto!important;
     position: absolute;
     right: 55px;
-    bottom: 5px;
+    bottom: 15px;
   }
 
   .nexmoe-user .nexmoe-avatar img {
     border-radius: 100%;
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     border: 5px solid #fff;
   }
 
@@ -111,7 +111,7 @@
     position: absolute;
     left: 55px;
     bottom: 45px;
-    font-size: 2em;
+    font-size: 1.5em;
     line-height: 60px;
   }
 

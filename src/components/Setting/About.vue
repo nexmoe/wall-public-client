@@ -26,6 +26,12 @@
 
 </script>
 
-<style>
-
+<style scoped>
+  ul {
+    display: block!important;
+    height: auto!important;
+    width: auto!important;
+    opacity: 1!important;
+    visibility: unset!important;
+  }
 </style>
