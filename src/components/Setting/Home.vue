@@ -45,7 +45,7 @@
   .nexmoe-setting.home ul li {
     border-bottom: none !important;
     line-height: 32px;
-    padding: 10px!important;
+    padding: 10px 0!important;
     zoom: 1.1;
   }
 
