@@ -40,14 +40,14 @@ export default {
     }
   },
   mounted: function () {
-    this.axios.get('http://dev.nexmoe.com:1004/api/view/category')
+    this.axios.get(this.GLOBAL.API+'/view/category')
       .then((res) => {
         this.category = res.data;
       })
       .catch(function (error) {
         console.log(error)
       });
-    this.axios.get('http://dev.nexmoe.com:1004/api/view/message')
+    this.axios.get(this.GLOBAL.API+'/view/message')
       .then((res) => {
         this.message = res.data;
       })
@@ -107,7 +107,7 @@ export default {
     color: #656565;
   }
   #nexmoe-content .nexmoe-item .nexmoe-category {
-    padding: 10px;
+    padding: 12px 10px;
     background-color: #f8f8f8;
   }
   #nexmoe-content .nexmoe-article {

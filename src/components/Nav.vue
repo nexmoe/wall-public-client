@@ -2,7 +2,7 @@
   <div id="nexmoe-nav">
     <ul class="nexmoe-nav">
       <li>
-        <router-link tag="a" to="/"><i class="nexmoefont icon-home"></i><i class="nexmoefont icon-home-fill"></i></router-link>
+        <router-link tag="a" to="/"><i class="nexmoefont icon-home"></i><i @click="refresh" class="nexmoefont icon-md-refresh-circle"></i></router-link>
       </li>
       <li>
         <router-link tag="a" to="/edit" class="nexmoe-plus">
@@ -25,7 +25,9 @@
       }
     },
     methods: {
-
+      refresh() {
+        location.reload()
+      }
     },
     watch: {
 
@@ -77,7 +79,7 @@
   }
 
   #nexmoe-nav .nexmoe-nav a.router-link-exact-active {
-    color: #f4a8ba;
+    color: #f099bb;
   }
 
   #nexmoe-nav .nexmoe-nav a.router-link-exact-active i:first-child,

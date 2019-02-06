@@ -4,10 +4,18 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+import '../theme/index.css'
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
 
-import axios from 'axios'
+Vue.use(ElementUI)
+
+import axios from 'axios';
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+Vue.prototype.$axios = axios;
+
+import global from '@/components/Global'
+Vue.prototype.GLOBAL = global
+
 import VueAxios from 'vue-axios'
 
 import VueLazyload from 'vue-lazyload'
@@ -15,7 +23,6 @@ import VueLazyload from 'vue-lazyload'
 import VueContentPlaceholders from 'vue-content-placeholders'
 
 Vue.use(VueContentPlaceholders)
-
 Vue.use(VueLazyload)
 Vue.use(ElementUI)
 Vue.use(VueAxios, axios)

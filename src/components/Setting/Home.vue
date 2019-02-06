@@ -25,9 +25,12 @@
       }
     },
     created: function () {
-      this.axios.get('http://dev.nexmoe.com:1004/api/view/user')
+      this.axios.get(this.GLOBAL.API+'/view/user')
         .then((res) => {
           this.item = res.data;
+          if(this.item['state']==0){
+            this.$router.push('/login')
+          }
         })
         .catch(function (error) {
           console.log(error)

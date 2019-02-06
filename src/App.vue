@@ -29,9 +29,7 @@
     }
     next()
   })
-
     
-
 </script>
 
 <style>
@@ -52,6 +50,19 @@
     }
     body {
       box-shadow: 0 0 30px #ababab;
+    }
+  }
+
+  @media screen and (max-width:960px) {
+    .el-message-box__wrapper {
+      top: unset!important;
+      padding: 10px!important;
+    }
+    .el-message-box__wrapper:after {
+      display: none!important;
+    }
+    .el-message-box {
+      width: 100%!important;
     }
   }
 

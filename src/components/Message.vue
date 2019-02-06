@@ -63,7 +63,7 @@
       }
     },
     mounted: function () {
-      this.axios.get('http://dev.nexmoe.com:1004/api/view/message/' + this.$route.params.id)
+      this.axios.get(this.GLOBAL.API+'/view/message/' + this.$route.params.id)
         .then((res) => {
           this.item = res.data;
         })
@@ -116,7 +116,7 @@
   }
 
   #nexmoe-content .nexmoe-category {
-    padding: 10px;
+    padding: 12px 10px;
     background-color: #f8f8f8;
   }
 
