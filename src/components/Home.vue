@@ -1,20 +1,28 @@
 <template>
   <div id="nexmoe-content">
     <div class="nexmoe-categorys">
-      <a>分类</a><a>分类</a><a>分类</a><a>分类</a><a>分类</a><a>分类</a><a>分类</a><a>分类</a><a>分类</a><a>分类</a><a>分类</a><a>分类</a><a>分类</a><a>分类</a><a>分类</a>
+      <router-link v-for="item in category" :key="item.time" tag="a" :to="'/category/'+item.cid"># {{ item.name }}</router-link>
     </div>
-    <div class="nexmoe-list" v-for="item in items" :key="item.time">
-      <router-link tag="a" to="/message/233" class="nexmoe-item">
+    <div class="nexmoe-list" v-for="item in message" :key="item.time">
+      <content-placeholders class="nexmoe-item" v-if="loading">
+        <content-placeholders-heading :img="true" />
+        <content-placeholders-img />
+        <content-placeholders-text />
+      </content-placeholders>
+      <router-link tag="a" :to="'/message/'+item.mid" class="nexmoe-item" v-if="!loading">
         <div class="nexmoe-author">
-          <div class="nexmoe-avatar"><img :src="item.avatar"></div>
-          <div class="nexmoe-name">{{ item.name }}</div>
-          <div class="nexmoe-s">{{ item.qq }}</div>
+          <div class="nexmoe-avatar"><img :src="item.author.avatar"></div>
+          <div class="nexmoe-name">{{ item.author.name }}</div>
+          <div class="nexmoe-s">{{ item.time }}</div>
         </div>
         <div class="nexmoe-category">
           # {{ item.category }}
         </div>
         <div class="nexmoe-article">
-          <p>{{ item.article }}</p>
+          <p v-for="item in item.article" :key="item.time">
+            <span v-if="item.type == 'p'">{{ item.text }}</span>
+            <img v-if="item.type == 'img'" :src="item.text">
+          </p>
         </div>
       </router-link>
     </div>
@@ -26,16 +34,27 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      items: [
-        {avatar:'https://avatar.dawnlab.me/qq/776194970',name:'折影轻梦',qq:'2019年1月19日',category:'这是一个分类',article:'这是一段内容'},
-        {avatar:'https://avatar.dawnlab.me/qq/776194970',name:'折影轻梦',qq:'2019年1月19日',category:'这是一个分类',article:'这是一段内容'},
-        {avatar:'https://avatar.dawnlab.me/qq/776194970',name:'折影轻梦',qq:'2019年1月19日',category:'这是一个分类',article:'这是一段内容'},
-        {avatar:'https://avatar.dawnlab.me/qq/776194970',name:'折影轻梦',qq:'2019年1月19日',category:'这是一个分类',article:'这是一段内容'},
-        {avatar:'https://avatar.dawnlab.me/qq/776194970',name:'折影轻梦',qq:'2019年1月19日',category:'这是一个分类',article:'这是一段内容'},
-        {avatar:'https://avatar.dawnlab.me/qq/776194970',name:'折影轻梦',qq:'2019年1月19日',category:'这是一个分类',article:'这是一段内容'},
-        {avatar:'https://avatar.dawnlab.me/qq/776194970',name:'折影轻梦',qq:'2019年1月19日',category:'这是一个分类',article:'这是一段内容'}
-      ]
+      loading: true,
+      category: '',
+      message: [{},{},{}]
     }
+  },
+  mounted: function () {
+    this.axios.get('http://dev.nexmoe.com:1004/api/view/category')
+      .then((res) => {
+        this.category = res.data;
+      })
+      .catch(function (error) {
+        console.log(error)
+      });
+    this.axios.get('http://dev.nexmoe.com:1004/api/view/message')
+      .then((res) => {
+        this.message = res.data;
+      })
+      .catch(function (error) {
+        console.log(error)
+      });
+    this.loading = false;
   }
 }
 </script>
@@ -51,6 +70,7 @@ export default {
     padding: 2px 6px;
     margin: 0 10px 10px 0;
     display: inline-block;
+    color: #010101;
   } 
   #nexmoe-content .nexmoe-item {
     background-color: #fff;
@@ -90,10 +110,14 @@ export default {
     padding: 10px;
     background-color: #f8f8f8;
   }
-  #nexmoe-content .nexmoe-item .nexmoe-article {
+  #nexmoe-content .nexmoe-article {
     padding: 1px 0;
   }
-  #nexmoe-content .nexmoe-item .nexmoe-article p {
+  #nexmoe-content .nexmoe-article p {
     margin: 10px ;
+  }
+  #nexmoe-content .nexmoe-article p img {
+    margin: 0 -10px;
+    width: calc(100% + 20px);
   }
 </style>

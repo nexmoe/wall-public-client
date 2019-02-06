@@ -2,7 +2,7 @@
   <div id="nexmoe-header">
     <div class="nexmoe-tab" v-if="$route.matched[0].path == ''">
       <router-link tag="a" to="/">最新</router-link>
-      <router-link tag="a" to="/time">时间块</router-link>
+      <!--<router-link tag="a" to="/time">时间块</router-link>-->
     </div>
     <div class="nexmoe-tab" v-if="$route.matched[0].path !== ''">
       <a v-on:click="$router.back(-1)"><i class="nexmoefont icon-arrowleft"></i> 返回</a>

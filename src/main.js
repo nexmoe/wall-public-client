@@ -12,6 +12,10 @@ import VueAxios from 'vue-axios'
 
 import VueLazyload from 'vue-lazyload'
 
+import VueContentPlaceholders from 'vue-content-placeholders'
+
+Vue.use(VueContentPlaceholders)
+
 Vue.use(VueLazyload)
 Vue.use(ElementUI)
 Vue.use(VueAxios, axios)

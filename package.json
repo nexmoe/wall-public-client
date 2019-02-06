@@ -17,6 +17,7 @@
     "element-ui": "^2.4.11",
     "vue": "^2.5.22",
     "vue-axios": "^2.1.4",
+    "vue-content-placeholders": "^0.2.1",
     "vue-lazyload": "^1.2.6",
     "vue-router": "^3.0.1"
   },

@@ -30,6 +30,8 @@
     next()
   })
 
+    
+
 </script>
 
 <style>
@@ -55,6 +57,25 @@
 
   a {
     text-decoration: none
+  }
+
+  .vue-content-placeholders-heading {
+    margin: 10px;
+    margin-top: 0;
+    padding-top: 10px;
+  }
+
+  .vue-content-placeholders-heading__img {
+    border-radius: 100%;
+  }
+
+  [class^="vue-content-placeholders-"] + .vue-content-placeholders-img {
+    margin-top: 0px;
+  }
+
+  [class^="vue-content-placeholders-"] + .vue-content-placeholders-text {
+    margin: 10px;
+    padding-bottom: 1px;
   }
 
   .nexmoe-tab {

@@ -7,9 +7,6 @@
     </div>
     <ul>
       <li>
-        <router-link tag="a" to="/setting/about"><i class="nexmoefont icon-home"></i>关于程序</router-link>
-      </li>
-      <li>
         <router-link tag="a" to="/setting/about"><i class="nexmoefont icon-infomation"></i>关于程序</router-link>
       </li>
     </ul>
@@ -22,11 +19,19 @@
     data() {
       return {
         item: {
-          avatar: 'https://avatar.dawnlab.me/qq/776194970?s=0',
+          avatar: 'https://avatar.dawnlab.me/qq/776194970',
           name: '折影轻梦',
-          qq: '776194970'
         },
       }
+    },
+    created: function () {
+      this.axios.get('http://dev.nexmoe.com:1004/api/view/user')
+        .then((res) => {
+          this.item = res.data;
+        })
+        .catch(function (error) {
+          console.log(error)
+        });
     }
   }
 
@@ -102,7 +107,7 @@
   .nexmoe-user .nexmoe-avatar img {
     border-radius: 100%;
     width: 100px;
-    height: 100px;
+    height: 100px!important;
     border: 5px solid #fff;
   }
 
@@ -113,6 +118,7 @@
     bottom: 45px;
     font-size: 1.5em;
     line-height: 60px;
+    padding: 0!important;
   }
 
   .nexmoe-user .nexmoe-bg {

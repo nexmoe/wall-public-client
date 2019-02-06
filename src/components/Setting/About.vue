@@ -8,7 +8,7 @@
         <li>企鹅群聊：797996017</li>
       </ul>
       <ul>
-        <li><a href="https://github.com/nexmoe/wall-public">开源地址：github.com/nexmoe/wall-public</a></li>
+        <li><a href="https://github.com/nexmoe/wall-public" target="_blank">开源地址：github.com/nexmoe/wall-public</a></li>
         <li>版权协议：MIT</li>
       </ul>
     </div>
