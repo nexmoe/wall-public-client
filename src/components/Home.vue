@@ -22,6 +22,8 @@
           <p v-for="item in item.article" :key="item.time">
             <span v-if="item.type == 'p'">{{ item.text }}</span>
             <img v-if="item.type == 'img'" :src="item.text">
+            <iframe v-if="item.type == 'bilibili'" :src="'https://player.bilibili.com/player.html?aid='+item.text" width="100%" height="233px"  scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+            <iframe v-if="item.type == 'music163'" :src="'https://music.163.com/outchain/player?type=2&height=66&id='+item.text" style="margin: -10px;width: calc(100% + 20px);" height="86px"  scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
           </p>
         </div>
       </router-link>
@@ -119,5 +121,7 @@ export default {
   #nexmoe-content .nexmoe-article p img {
     margin: 0 -10px;
     width: calc(100% + 20px);
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
   }
 </style>

@@ -1,5 +1,5 @@
 <script>
-  const API = 'http://dev.nexmoe.com:1004/api';
+  const API = '/api';
 
   export default {
     API,

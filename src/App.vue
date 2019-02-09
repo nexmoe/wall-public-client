@@ -44,7 +44,8 @@
   @media screen and (min-width:960px) {
     body,
     #nexmoe-nav,
-    #nexmoe-header {
+    #nexmoe-header,
+    .nexmoe-reply {
       width: 420px!important;
       margin: auto;
     }

@@ -2,9 +2,10 @@
   "id": "wall",
   "name": "一中墙",
   "short_name": "一中墙",
+  "start_url": "/index.html",
   "version": {
     "name": "1.0",
-    "code": "9.1.20"
+    "code": "12"
   },
   "developer": {
     "name": "折影轻梦",

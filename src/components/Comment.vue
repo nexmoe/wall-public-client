@@ -4,8 +4,8 @@
       <li>
         <div class="nexmoe-author">
           <div class="nexmoe-avatar"><img :src="comment.author.avatar"></div>
-          <div class="nexmoe-name">{{ comment.author.name }} <span v-if="comment.parent!=='0'">回复</span> {{ comment.parent.name }}</div>
-          <div class="nexmoe-s"><span>{{ comment.time }}</span> <span>回复</span></div>
+          <div class="nexmoe-name">{{ comment.author.name }} <span v-if="comment.parent!=='0'">回复</span> <a>{{ comment.parent.name }}</a></div>
+          <div class="nexmoe-s"><span>{{ comment.time }}</span> <a @click="ereply(comment.coid,comment.author.name)">回复</a></div>
         </div>
         <div class="nexmoe-text">
           {{ comment.text }}
@@ -22,6 +22,45 @@
     props: ['comment'],
     data() {
       return {
+      }
+    },
+    methods: {
+      ereply(coid=0,name='本贴') {
+        this.$prompt('你正在回复：' + name, '请输入评论内容', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          inputPattern: /\S/,
+          inputErrorMessage: '内容不可为空'
+        }).then(({ value }) => {
+          this.axios.post(this.GLOBAL.API+'/controller/reply/', {
+            mid: this.$route.params.id,
+            coid: coid,
+            text: value,
+          })
+          .then((res) => {
+            if (res.data.state == 1) {
+              this.$alert(res.data.info, '发布成功！', {
+                confirmButtonText: '确定',
+                type: 'success',
+              }).then(() => {
+                location.reload()
+              });
+            } else {
+              this.$alert(res.data.info, '发布失败！', {
+                confirmButtonText: '确定',
+                type: 'error'
+              });
+            }
+          })
+          .catch(function (error) {
+            console.log(error)
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '取消输入'
+          });       
+        });
       }
     },
 
@@ -44,6 +83,10 @@
     margin-top: 0 !important;
     line-height: 21px;
     height: 21px;
+  }
+
+  #nexmoe-content .nexmoe-comment a {
+    color: #f099bb;
   }
 
   #nexmoe-content .nexmoe-comment ul {
