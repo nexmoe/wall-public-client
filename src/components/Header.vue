@@ -7,6 +7,11 @@
     <div class="nexmoe-tab" v-if="$route.matched[0].path !== ''">
       <a v-on:click="$router.back(-1)"><i class="nexmoefont icon-arrowleft"></i> 返回</a>
     </div>
+    <div class="nexmoe-notice" v-if="$route.matched[0].path == ''">
+      <router-link tag="a" to="/edit">
+        <el-button type="primary" icon="nexmoefont icon-plus" circle size="mini"></el-button>
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -38,6 +43,30 @@
     top: 0;
     width: 100%;
     z-index: 10;
+    background-color: #fff;
+  }
+
+  #nexmoe-header .nexmoe-tab {
+    float: left;
+    width: calc(100% - 46px);
+  }
+
+  #nexmoe-header .nexmoe-notice {
+    float: left;
+    width: 46px;
+    text-align: center;
+    box-sizing: border-box;
+    height: 46px;
+    border-bottom: 1px solid #eee;
+    padding: 6px;
+  }
+
+  #nexmoe-header .nexmoe-notice .el-button--mini.is-circle {
+    box-shadow: 0 0 12px #ff7b8c;
+  }
+
+  #nexmoe-header .nexmoe-notice i {
+    color: #fff;
   }
 
   a {

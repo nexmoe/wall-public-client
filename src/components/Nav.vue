@@ -5,10 +5,12 @@
         <router-link tag="a" to="/"><i class="nexmoefont icon-home"></i><i @click="refresh" class="nexmoefont icon-md-refresh-circle"></i></router-link>
       </li>
       <li>
-        <router-link tag="a" to="/edit" class="nexmoe-plus">
-          <div class="icon-menu"></div>
-          <div class="icon-menu"></div>
-        </router-link>
+        <el-badge :value="12">
+          <router-link tag="a" to="/notice">
+            <i class="nexmoefont icon-bell"></i>
+            <i class="nexmoefont icon-bell-fill"></i>
+          </router-link>
+        </el-badge>
       </li>
       <li>
         <router-link tag="a" to="/setting/home"><i class="nexmoefont icon-people"></i><i class="nexmoefont icon-people-fill"></i></router-link>
@@ -68,6 +70,10 @@
     color: #adadad;
   }
 
+  #nexmoe-nav .nexmoe-nav li .el-badge__content.is-fixed {
+    top: 15px;
+  }
+
   #nexmoe-nav .nexmoe-nav a {
     display: block;
     color: #adadad;
@@ -102,6 +108,7 @@
     from {
       transform: scale(.7);
     }
+
     to {
       transform: scale(1);
     }
