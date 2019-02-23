@@ -7,8 +7,8 @@
     <div class="nexmoe-tab" v-if="$route.matched[0].path !== ''">
       <a v-on:click="$router.back(-1)"><i class="nexmoefont icon-arrowleft"></i> 返回</a>
     </div>
-    <div class="nexmoe-notice" v-if="$route.matched[0].path == ''">
-      <router-link tag="a" to="/edit">
+    <div class="nexmoe-notice">
+      <router-link tag="a" to="/edit" v-if="$route.matched[0].path == ''">
         <el-button type="primary" icon="nexmoefont icon-plus" circle size="mini"></el-button>
       </router-link>
     </div>

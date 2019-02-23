@@ -5,7 +5,7 @@
         <router-link tag="a" to="/"><i class="nexmoefont icon-home"></i><i @click="refresh" class="nexmoefont icon-md-refresh-circle"></i></router-link>
       </li>
       <li>
-        <el-badge :value="12">
+        <el-badge :value="count">
           <router-link tag="a" to="/notice">
             <i class="nexmoefont icon-bell"></i>
             <i class="nexmoefont icon-bell-fill"></i>
@@ -23,8 +23,18 @@
   export default {
     data() {
       return {
-
+        count: []
       }
+    },
+    created: function () {
+      this.axios.get(this.GLOBAL.API+'/view/notice/true')
+        .then((res) => {
+          this.count = res.data;
+          console.log(res.data)
+        })
+        .catch(function (error) {
+          console.log(error)
+        });
     },
     methods: {
       refresh() {
@@ -68,6 +78,10 @@
     text-align: center;
     line-height: 56px;
     color: #adadad;
+  }
+
+  #nexmoe-nav .nexmoe-nav li .el-badge {
+    vertical-align: unset;
   }
 
   #nexmoe-nav .nexmoe-nav li .el-badge__content.is-fixed {
