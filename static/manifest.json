@@ -1,23 +1,52 @@
 {
-  "id": "wall",
   "name": "一中墙",
   "short_name": "一中墙",
-  "start_url": "/index.html",
-  "version": {
-    "name": "1.0",
-    "code": "12"
-  },
-  "developer": {
-    "name": "折影轻梦",
-    "email": "776194970",
-    "url": "https://nexmoe.com/"
-  },
+  "theme_color": "#ffffff",
+  "background_color": "#ff7b8c",
   "display": "standalone",
-  "background_color": "#fff",
-  "theme_color": "#fff",
-  "icons": [{
-    "src": "/static/image/icon/144.png",
-    "sizes": "144x144",
-    "type": "image/png"
-  }]
+  "Scope": "/",
+  "start_url": "/",
+  "icon": [
+    {
+      "src": "image/icon/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "image/icon/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "image/icon/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "image/icon/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "image/icon/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "image/icon/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "image/icon/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "image/icon/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "splash_pages": null
 }
