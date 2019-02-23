@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
+import Category from '@/components/Category'
 import Message from '@/components/Message'
 import Edit from '@/components/Edit'
 import Login from '@/components/Login'
@@ -18,6 +19,7 @@ export default new Router({
   },
   routes: [
     { path: '/', component: Home, meta: {keepAlive: true, title: '一中墙'} },
+    { path: '/category/:id', component: Category, meta: {keepAlive: false, title: '一中墙'} },
     { path: '/edit', component: Edit, meta: {keepAlive: false, title: '一中墙'} },
     { path: '/edit/:id', component: Edit, meta: {keepAlive: false, title: '一中墙'} },
     { path: '/message/:id', component: Message, meta: {keepAlive: false, title: '一中墙'} },

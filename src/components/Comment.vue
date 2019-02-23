@@ -49,6 +49,10 @@
               this.$alert(res.data.info, '发布失败！', {
                 confirmButtonText: '确定',
                 type: 'error'
+              }).then(() => {
+                if (res.data.state == 2){
+                  this.$router.push('/login')
+                }
               });
             }
           })
@@ -75,16 +79,32 @@
 
   #nexmoe-content .nexmoe-comment .nexmoe-author {
     height: 42px;
+    padding: 10px;
     padding-bottom: 0;
+  }
+
+  #nexmoe-content .nexmoe-comment .nexmoe-author .nexmoe-avatar {
+    height: 100%;
+    float: left;
+  }
+
+  #nexmoe-content .nexmoe-comment .nexmoe-author .nexmoe-avatar img {
+    height: 100%;
+    border-radius: 100%;
+    background: #fff;
   }
 
   #nexmoe-content .nexmoe-comment .nexmoe-name,
   #nexmoe-content .nexmoe-comment .nexmoe-s {
+    width: calc(100% - 56px);
+    box-sizing: border-box;
+    padding: 0 10px;
+    float: left;
     margin-top: 0 !important;
     line-height: 21px;
     height: 21px;
   }
-
+  
   #nexmoe-content .nexmoe-comment a {
     color: #f099bb;
   }

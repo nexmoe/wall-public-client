@@ -7,45 +7,58 @@
           </el-option>
         </el-select>
       </div>
-      <div class="nexmoe-article">
-        <p v-for="item in article" :key="item.time">
-          <span v-if="item.type == 'p'">{{ item.text }}</span>
-          <img v-if="item.type == 'img'" :src="item.text">
-        </p>
-      </div>
+      <Article :article="article"></Article>
+      <p v-loading="upload" v-if="upload" style="margin: 0;">
+        <img style="width: 100%;" :src="uploadimg">
+      </p>
     </div>
     <div class="nexmoe-item">
       <el-input type="textarea" placeholder="请输入内容" v-model="edit">
       </el-input>
-      <el-button type="primary" @click="onSubmit">添加第 {{ this.count }} 条内容</el-button>
+      <div class="nexmoe-tool">
+        <el-upload style="float: left;" :action="this.GLOBAL.API + '/controller/picupload'" accept="image/*"
+          :before-upload="beforePicUpload" :on-success="handlePicSuccess" :show-file-list="false" multiple>
+          <el-button icon="el-icon-picture-outline" circle></el-button>
+        </el-upload>
+        <el-button style="float: right;" type="primary" @click="onSubmit">添加第 {{ this.count }} 条内容</el-button>
+      </div>
     </div>
+    <el-switch v-model="anonymous" active-value="true" inactive-value="false" active-text="匿名发布" style="margin:0 10px 10px 10px;"></el-switch>
+
     <el-button @click="send" style="width: 100%;">发布</el-button>
   </div>
 </template>
 
 <script>
+import Article from '@/components/item/Article'
   export default {
     name: 'Edit',
+    components: {
+      Article
+    },
     data() {
       return {
         edit: '',
         count: 1,
         category: '',
+        anonymous: false,
         value: '2336',
-        article: []
+        article: [],
+        upload: false,
+        uploadimg: '',
       }
     },
     created: function () {
-      this.axios.get(this.GLOBAL.API+'/view/user')
+      this.axios.get(this.GLOBAL.API + '/view/user')
         .then((res) => {
-          if(res.data['state']==0){
+          if (res.data['state'] == 0) {
             this.$router.push('/login')
           }
         })
         .catch(function (error) {
           console.log(error)
         });
-      this.axios.get(this.GLOBAL.API+'/view/category')
+      this.axios.get(this.GLOBAL.API + '/view/category')
         .then((res) => {
           this.category = res.data;
         })
@@ -54,10 +67,25 @@
         });
     },
     methods: {
+      handlePicSuccess(res, file) {
+        console.log(res)
+        this.upload = false
+        this.article.push({
+          type: 'img',
+          text: res.large
+        })
+        this.count++
+      },
+      beforePicUpload(file) {
+        this.upload = true
+        this.uploadimg = URL.createObjectURL(file)
+      },
       send() {
-        this.axios.post(this.GLOBAL.API+'/controller/edit/', {
+        this.onSubmit()
+        this.axios.post(this.GLOBAL.API + '/controller/edit/', {
             category: this.value,
             article: this.article,
+            anonymous: this.anonymous,
           })
           .then((res) => {
             if (res.data.state == 1) {
@@ -66,6 +94,7 @@
                 type: 'success',
               }).then(() => {
                 this.$router.push('/')
+                location.reload()
               });
             } else {
               this.$alert(res.data.info, '发布失败！', {
@@ -80,10 +109,44 @@
       },
       onSubmit() {
         if (this.edit != '') {
-          this.items = this.article.push({
-            type: 'p',
-            text: this.edit
-          })
+          var bilibili = /^.*(ht|f)tp(s?)\:\/\/www\.bilibili\.com\/video\/av.*\s$/;
+          var music163 = /^.*(ht|f)tp(s?)\:\/\/music\.163\.com\/song\/(.|\n)*$/;
+          // var music163desk = /^.*(ht|f)tp(s?)\:\/\/music\.163\.com.*song?id=.*$/;
+          var xiami = /^.*(ht|f)tp(s?)\:\/\/www\.xiami\.com\/song\/(.|\n)*$/;
+          if (bilibili.test(this.edit)) {
+            var av = this.edit.replace(/^.*(ht|f)tp(s?)\:\/\/www\.bilibili\.com\/video\/av([0-9]+).*(.|\n)$/, "$3");
+            this.items = this.article.push({
+              type: 'bilibili',
+              text: av
+            })
+          } else if (music163.test(this.edit)) {
+            var id = this.edit.replace(/^.*(ht|f)tp(s?)\:\/\/music\.163\.com\/song\/([0-9]+)(.|\n)*$/, "$3");
+            this.items = this.article.push({
+              type: 'music',
+              text: 'https://music.163.com/song?id='+id
+            })
+          } else if (xiami.test(this.edit)) {
+            var id = this.edit.replace(/^.*(ht|f)tp(s?)\:\/\/www\.xiami\.com\/song\/([0-9]+)(.|\n)*$/, "$3");
+            this.items = this.article.push({
+              type: 'music',
+              text: 'https://www.xiami.com/song/'+id
+            })
+          }
+          /* else if(music163desk.test(this.edit)) {
+                      console.log(this.edit)
+                      var id = this.edit.replace(/^.*(ht|f)tp(s?)\:\/\/music\.163\.com.*song?id=([0-9]+).*(.|\n)$/, "$3");
+                      console.log(id)
+                      this.items = this.article.push({
+                        type: 'music163',
+                        text: id
+                      })
+                    }*/
+          else {
+            this.items = this.article.push({
+              type: 'p',
+              text: this.edit
+            })
+          }
           this.edit = ''
           this.count++
         }
@@ -106,65 +169,14 @@
   }
 
   .el-select-dropdown__item {
-    font-size: 16px!important;
-    line-height: 48px!important;
-    height: 49px!important;
-  }
-
-  #nexmoe-content .nexmoe-item {
-    background-color: #fff;
-    margin-bottom: 10px;
-  }
-
-  #nexmoe-content .nexmoe-author {
-    padding: 10px;
-    height: 56px;
-  }
-
-  #nexmoe-content .nexmoe-avatar {
-    height: 100%;
-    float: left;
-  }
-
-  #nexmoe-content .nexmoe-avatar img {
-    height: 100%;
-    border-radius: 100%;
-    background: #fff;
-  }
-
-  #nexmoe-content .nexmoe-name {
-    float: left;
-    width: calc(100% - 56px);
-    margin-top: 6px;
-    box-sizing: border-box;
-    padding: 0 10px;
-  }
-
-  #nexmoe-content .nexmoe-s {
-    float: left;
-    width: calc(100% - 56px);
-    margin-top: 2px;
-    box-sizing: border-box;
-    padding: 0 10px;
-    color: #656565;
+    font-size: 16px !important;
+    line-height: 48px !important;
+    height: 49px !important;
   }
 
   #nexmoe-content .nexmoe-category {
     padding: 10px;
     background-color: #f8f8f8;
-  }
-
-  #nexmoe-content .nexmoe-article {
-    padding: 1px 0;
-  }
-
-  #nexmoe-content .nexmoe-article p {
-    margin: 10px;
-  }
-
-  #nexmoe-content .nexmoe-article p img {
-    margin: 0 -10px;
-    width: calc(100% + 20px);
   }
 
   #nexmoe-content .nexmoe-category .el-select {

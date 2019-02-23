@@ -5,27 +5,7 @@
       <content-placeholders-img />
       <content-placeholders-text />
     </content-placeholders>
-    <div class="nexmoe-item" v-if="!loading">
-      <div class="nexmoe-author">
-        <div class="nexmoe-avatar"><img :src="item.author.avatar"></div>
-        <div class="nexmoe-name">{{ item.author.name }}</div>
-        <div class="nexmoe-s">{{ item.time }}</div>
-      </div>
-      <div class="nexmoe-category">
-        # {{ item.category }}
-      </div>
-      <div class="nexmoe-article">
-        <p v-for="item in item.article" :key="item.time">
-          <span v-if="item.type == 'p'">{{ item.text }}</span>
-          <img v-if="item.type == 'img'" :src="item.text">
-          <iframe v-if="item.type == 'bilibili'" :src="'https://player.bilibili.com/player.html?aid='+item.text" width="100%"
-            height="233px" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-          <iframe v-if="item.type == 'music163'" :src="'https://music.163.com/outchain/player?type=2&height=66&id='+item.text"
-            style="margin: -10px;width: calc(100% + 20px);" height="86px" scrolling="no" border="0" frameborder="no"
-            framespacing="0" allowfullscreen="true"></iframe>
-        </p>
-      </div>
-    </div>
+    <Item :item="item" v-if="!loading"></Item>
     <div class="nexmoe-comment">
       <div class="nexmoe-tab">
         <router-link tag="a" :to="'/message/'+item.mid">评论 {{ item.comment.count }}</router-link>
@@ -56,14 +36,17 @@
 
 <script>
   import Comment from '@/components/Comment'
+  import Item from '@/components/Item'
+
   export default {
     components: {
-      Comment
+      Comment,
+      Item
     },
     data() {
       return {
         loading: true,
-        reply: 'eee',
+        reply: '',
         item: {
           comment: {
             data: [{}, {}, {}]
@@ -72,41 +55,47 @@
       }
     },
     methods: {
-      ereply(coid=0,name='本贴') {
+      ereply(coid = 0, name = '本贴') {
         this.$prompt('你正在回复' + name, '请输入评论内容', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           inputPattern: /\S/,
           inputErrorMessage: '内容不可为空'
-        }).then(({ value }) => {
-          this.axios.post(this.GLOBAL.API+'/controller/reply/', {
-            mid: this.item.mid,
-            coid: coid,
-            text: value,
-          })
-          .then((res) => {
-            if (res.data.state == 1) {
-              this.$alert(res.data.info, '发布成功！', {
-                confirmButtonText: '确定',
-                type: 'success',
-              }).then(() => {
-                location.reload()
-              });
-            } else {
-              this.$alert(res.data.info, '发布失败！', {
-                confirmButtonText: '确定',
-                type: 'error'
-              });
-            }
-          })
-          .catch(function (error) {
-            console.log(error)
-          });
+        }).then(({
+          value
+        }) => {
+          this.axios.post(this.GLOBAL.API + '/controller/reply/', {
+              mid: this.item.mid,
+              coid: coid,
+              text: value,
+            })
+            .then((res) => {
+              if (res.data.state == 1) {
+                this.$alert(res.data.info, '发布成功！', {
+                  confirmButtonText: '确定',
+                  type: 'success',
+                }).then(() => {
+                  location.reload()
+                });
+              } else {
+                this.$alert(res.data.info, '发布失败！', {
+                  confirmButtonText: '确定',
+                  type: 'error'
+                }).then(() => {
+                  if (res.data.state == 2) {
+                    this.$router.push('/login')
+                  }
+                });
+              }
+            })
+            .catch(function (error) {
+              console.log(error)
+            });
         }).catch(() => {
           this.$message({
             type: 'info',
             message: '取消输入'
-          });       
+          });
         });
       }
     },
@@ -114,11 +103,11 @@
       this.axios.get(this.GLOBAL.API + '/view/message/' + this.$route.params.id)
         .then((res) => {
           this.item = res.data;
+          this.loading = false;
         })
         .catch(function (error) {
           console.log(error)
         });
-      this.loading = false;
     },
   }
 
@@ -131,63 +120,6 @@
     height: 49px !important;
   }
 
-  #nexmoe-content .nexmoe-item {
-    background-color: #fff;
-    margin-bottom: 10px;
-  }
-
-  #nexmoe-content .nexmoe-author {
-    padding: 10px;
-    height: 56px;
-  }
-
-  #nexmoe-content .nexmoe-avatar {
-    height: 100%;
-    float: left;
-  }
-
-  #nexmoe-content .nexmoe-avatar img {
-    height: 100%;
-    border-radius: 100%;
-    background: #fff;
-  }
-
-  #nexmoe-content .nexmoe-name {
-    float: left;
-    width: calc(100% - 56px);
-    margin-top: 6px;
-    box-sizing: border-box;
-    padding: 0 10px;
-  }
-
-  #nexmoe-content .nexmoe-s {
-    float: left;
-    width: calc(100% - 56px);
-    margin-top: 2px;
-    box-sizing: border-box;
-    padding: 0 10px;
-    color: #656565;
-  }
-
-  #nexmoe-content .nexmoe-category {
-    padding: 12px 10px;
-    background-color: #f8f8f8;
-  }
-
-  #nexmoe-content .nexmoe-article {
-    padding: 1px 0;
-  }
-
-  #nexmoe-content .nexmoe-article p {
-    margin: 10px;
-  }
-
-  #nexmoe-content .nexmoe-article p img {
-    margin: 0 -10px;
-    width: calc(100% + 20px);
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-  }
 
   #nexmoe-content .nexmoe-comment {
     background-color: #fff;

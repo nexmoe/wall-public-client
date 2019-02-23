@@ -9,6 +9,12 @@
       <li>
         <router-link tag="a" to="/setting/about"><i class="nexmoefont icon-infomation"></i>关于程序</router-link>
       </li>
+      <li v-if="version<newversion">
+        <a href="https://one.chainwon.com/wall.chainwon.com.apk"><i class="nexmoefont icon-infomation"></i>更新版本</a>
+      </li>
+      <li v-if="!version">
+        <a href="https://one.chainwon.com/wall.chainwon.com.apk"><i class="nexmoefont icon-infomation"></i>下载安卓 APP</a>
+      </li>
     </ul>
   </div>
 </template>
@@ -18,6 +24,8 @@
     name: 'HelloWorld',
     data() {
       return {
+        version: window.version,
+        newversion: 190212,
         item: {
           avatar: 'https://avatar.dawnlab.me/qq/776194970',
           name: '折影轻梦',

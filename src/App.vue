@@ -124,4 +124,17 @@
     left: 0;
   }
 
+  #nexmoe-content .nexmoe-item {
+    background-color: #fff;
+    margin-bottom: 10px;
+    display: block;
+    color: #010101;
+  }
+
+  #nexmoe-content .nexmoe-item::after {
+    clear: both;
+    display: table;
+    content: ' ';
+  }
+
 </style>

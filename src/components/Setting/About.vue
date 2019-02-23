@@ -10,6 +10,7 @@
       <ul>
         <li><a href="https://github.com/nexmoe/wall-public" target="_blank">开源地址：github.com/nexmoe/wall-public</a></li>
         <li>版权协议：MIT</li>
+        <li v-if="version">当前版本：{{ version }}</li>
       </ul>
     </div>
 </template>
@@ -19,7 +20,7 @@
     name: 'HelloWorld',
     data() {
       return {
-
+        version: window.version
       }
     }
   }
