@@ -135,7 +135,7 @@
   }
 
   #nexmoe-content .nexmoe-reply .el-button {
-    box-shadow: 0 0 10px #bcbcbc;
+        box-shadow: 0 2px 10px #ff7b8c;
   }
 
 </style>

@@ -110,13 +110,13 @@
   }
 
   .nexmoe-tab a.router-link-exact-active {
-    color: #f099bb;
+    color: #ff7b8c;
   }
 
   .nexmoe-tab a.router-link-exact-active::after {
-    color: #f099bb;
+    color: #ff7b8c;
     content: "";
-    background-color: #f099bb;
+    background-color: #ff7b8c;
     width: 100%;
     height: 3px;
     position: absolute;

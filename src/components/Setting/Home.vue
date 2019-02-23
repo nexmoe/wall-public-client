@@ -71,7 +71,7 @@
     display: inline-block;
     text-align: center;
     z-index: 0;
-    color: #f099bb;
+    color: #ff7b8c;
     margin-right: 5px;
   }
 
@@ -79,7 +79,7 @@
     content: "";
     height: 28px;
     width: 28px;
-    background-color: rgba(240, 153, 187, .1);
+    background-color: rgba(255, 123, 140, .1);
     position: absolute;
     left: 2px;
     border-radius: 100%;
@@ -135,7 +135,7 @@
   .nexmoe-user .nexmoe-bg {
     height: 100%;
     width: 100%;
-    background-color: #f099bb;
+    background-color: #ff7b8c;
     position: absolute;
     top: 0;
     left: 0;

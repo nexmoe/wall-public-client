@@ -106,7 +106,7 @@
   }
   
   #nexmoe-content .nexmoe-comment a {
-    color: #f099bb;
+    color: #ff7b8c;
   }
 
   #nexmoe-content .nexmoe-comment ul {

@@ -79,7 +79,7 @@
   }
 
   #nexmoe-nav .nexmoe-nav a.router-link-exact-active {
-    color: #f099bb;
+    color: #ff7b8c;
   }
 
   #nexmoe-nav .nexmoe-nav a.router-link-exact-active i:first-child,
@@ -109,7 +109,7 @@
 
   #nexmoe-nav .nexmoe-nav .nexmoe-plus {
     transition: all .35s;
-    background-color: #f099bb;
+    background-color: #ff7b8c;
     color: #fff;
     width: 64px;
     border-radius: 100%;
