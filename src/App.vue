@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <Header/>
+    <Header />
     <keep-alive>
       <router-view v-if="$route.meta.keepAlive" />
     </keep-alive>
     <router-view v-if="!$route.meta.keepAlive"></router-view>
-    <Nav v-if="$route.matched[0].path !== '/message/:id' && $route.matched[0].path !== '/edit'"/>
+    <Nav v-if="$route.matched[0].path !== '/message/:id' && $route.matched[0].path !== '/edit'" />
   </div>
 </template>
 
@@ -27,28 +27,59 @@
       var title = to.meta.title
       document.title = title
     }
+
+    // 百度统计
+    setTimeout(() => {
+      var _hmt = _hmt || [];
+      (function () {
+        //每次执行前，先移除上次插入的代码
+        document.getElementById('baidu_tj') && document.getElementById('baidu_tj').remove();
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?41b04999ee3d67f2acc9ce741045e68d";
+        hm.id = "baidu_tj"
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    }, 0);
+
     next()
   })
-    
+
+  // 进行 service-wroker 注册
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker
+        .register('/service-wroker.js')
+        .then(registration => {
+          console.log('SW registered: ', registration);
+        })
+        .catch(registrationError => {
+          console.log('SW registration failed: ', registrationError);
+        });
+    });
+  }
+
 </script>
 
 <style>
   body {
     margin: 0;
     background-color: #f1f1f1;
-    -webkit-tap-highlight-color:transparent;
+    -webkit-tap-highlight-color: transparent;
     box-sizing: border-box;
     min-height: calc(100vh - 102px);
   }
 
   @media screen and (min-width:960px) {
+
     body,
     #nexmoe-nav,
     #nexmoe-header,
     .nexmoe-reply {
-      width: 420px!important;
+      width: 420px !important;
       margin: auto;
     }
+
     body {
       box-shadow: 0 0 30px #ababab;
     }
@@ -56,14 +87,16 @@
 
   @media screen and (max-width:960px) {
     .el-message-box__wrapper {
-      top: unset!important;
-      padding: 10px!important;
+      top: unset !important;
+      padding: 10px !important;
     }
+
     .el-message-box__wrapper:after {
-      display: none!important;
+      display: none !important;
     }
+
     .el-message-box {
-      width: 100%!important;
+      width: 100% !important;
     }
   }
 
@@ -81,11 +114,11 @@
     border-radius: 100%;
   }
 
-  [class^="vue-content-placeholders-"] + .vue-content-placeholders-img {
+  [class^="vue-content-placeholders-"]+.vue-content-placeholders-img {
     margin-top: 0px;
   }
 
-  [class^="vue-content-placeholders-"] + .vue-content-placeholders-text {
+  [class^="vue-content-placeholders-"]+.vue-content-placeholders-text {
     margin: 10px;
     padding-bottom: 1px;
   }

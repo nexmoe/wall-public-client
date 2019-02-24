@@ -20,7 +20,8 @@
     "vue-axios": "^2.1.4",
     "vue-content-placeholders": "^0.2.1",
     "vue-lazyload": "^1.2.6",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "workbox-webpack-plugin": "^3.6.3"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
