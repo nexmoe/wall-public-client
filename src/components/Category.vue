@@ -16,7 +16,7 @@
         <content-placeholders-img />
         <content-placeholders-text />
       </content-placeholders>
-      <router-link tag="a" :to="'/message/'+item.mid" class="nexmoe-item" v-if="!loading" v-for="item in message" :key="item.time">
+      <router-link tag="a" :to="'/message/'+item.mid" v-if="!loading" v-for="item in message" :key="item.time">
         <Item :item="item" v-if="!loading"></Item>
       </router-link>
     </div>
