@@ -23,7 +23,7 @@
   export default {
     data() {
       return {
-        count: []
+        count: ''
       }
     },
     created: function () {

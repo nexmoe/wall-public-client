@@ -34,7 +34,7 @@ const webpackConfig = merge(baseWebpackConfig, {
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new WorkboxPlugin.GenerateSW({
-      cacheId: 'webpack-pwa', // 设置前缀
+      cacheId: 'nexmoe-pwa', // 设置前缀
       skipWaiting: true, // 强制等待中的 Service Worker 被激活
       clientsClaim: true, // Service Worker 被激活后使其立即获得页面控制权
       swDest: 'service-wroker.js', // 输出 Service worker 文件
@@ -43,9 +43,13 @@ const webpackConfig = merge(baseWebpackConfig, {
       runtimeCaching: [
         // 配置路由请求缓存
         {
-          urlPattern: /.*\.js/, // 匹配文件
-          handler: 'networkFirst' // 网络优先
-        }
+          urlPattern: /\/.*/,
+          handler: 'networkFirst',
+        },
+        {
+          urlPattern: /\/static\/.*/,
+          handler: 'cacheFirst',
+        },
       ]
     }),
     new webpack.DefinePlugin({

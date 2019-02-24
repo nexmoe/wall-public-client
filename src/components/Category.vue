@@ -53,7 +53,6 @@ import Item from '@/components/Item'
 
 <style>
   #nexmoe-content .nexmoe-categorys {
-    padding-top: 10px;
     padding-left: 10px;
   }
 
