@@ -15,18 +15,77 @@ Vue.use(Router)
 
 export default new Router({
   mode: 'history',
-  routes: [
-    { path: '/', component: Home, meta: {keepAlive: true, title: '一中墙'} },
-    { path: '/category/:id', component: Category, meta: {keepAlive: false, title: '一中墙'} },
-    { path: '/edit', component: Edit, meta: {keepAlive: false, title: '一中墙'} },
-    { path: '/edit/:id', component: Edit, meta: {keepAlive: false, title: '一中墙'} },
-    { path: '/message/:id', component: Message, meta: {keepAlive: false, title: '一中墙'} },
-    { path: '/login', component: Login, meta: {keepAlive: false, title: '登录'} },
-    { path: '/notice', component: Notice, meta: {keepAlive: false, title: '通知'} },
-    { path: '/setting', component: Setting, meta: {keepAlive: true, title: '一中墙'},
-      children: [
-        { path: 'home', component: SettingHome },
-        { path: 'about', component: SettingAbout },
+  routes: [{
+      path: '/',
+      component: Home,
+      meta: {
+        keepAlive: true,
+        title: '一中墙'
+      }
+    },
+    {
+      path: '/category/:id',
+      component: Category,
+      meta: {
+        keepAlive: false,
+        title: '一中墙'
+      }
+    },
+    {
+      path: '/edit',
+      component: Edit,
+      meta: {
+        keepAlive: false,
+        title: '一中墙'
+      }
+    },
+    {
+      path: '/edit/:id',
+      component: Edit,
+      meta: {
+        keepAlive: false,
+        title: '一中墙'
+      }
+    },
+    {
+      path: '/message/:id',
+      component: Message,
+      meta: {
+        keepAlive: false,
+        title: '一中墙'
+      }
+    },
+    {
+      path: '/login',
+      component: Login,
+      meta: {
+        keepAlive: false,
+        title: '登录'
+      }
+    },
+    {
+      path: '/notice',
+      component: Notice,
+      meta: {
+        keepAlive: false,
+        title: '通知'
+      }
+    },
+    {
+      path: '/setting',
+      component: Setting,
+      meta: {
+        keepAlive: true,
+        title: '一中墙'
+      },
+      children: [{
+          path: 'home',
+          component: SettingHome
+        },
+        {
+          path: 'about',
+          component: SettingAbout
+        },
       ]
     },
   ]
