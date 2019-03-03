@@ -99,7 +99,7 @@
         });
       }
     },
-    mounted: function () {
+    mounted () {
       this.axios.get(this.GLOBAL.API + '/view/message/' + this.$route.params.id)
         .then((res) => {
           this.item = res.data;
