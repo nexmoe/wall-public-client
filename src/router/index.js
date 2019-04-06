@@ -1,92 +1,93 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from '@/components/Home'
-import Category from '@/components/Category'
-import Message from '@/components/Message'
-import Edit from '@/components/Edit'
-import Login from '@/components/Login'
-import Notice from '@/components/Notice'
-import Setting from '@/components/Setting'
-import SettingHome from '@/components/Setting/Home'
-import SettingAbout from '@/components/Setting/About'
+import Vue from "vue";
+import Router from "vue-router";
+import Home from "@/components/Home";
+import Category from "@/components/Category";
+import Message from "@/components/Message";
+import Edit from "@/components/Edit";
+import Login from "@/components/Login";
+import Notice from "@/components/Notice";
+import Setting from "@/components/Setting";
+import SettingHome from "@/components/Setting/Home";
+import SettingAbout from "@/components/Setting/About";
 
-
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
-  mode: 'history',
-  routes: [{
-      path: '/',
+  mode: "history",
+  routes: [
+    {
+      path: "/",
       component: Home,
       meta: {
         keepAlive: true,
-        title: '一中墙'
+        title: "墙"
       }
     },
     {
-      path: '/category/:id',
+      path: "/category/:id",
       component: Category,
       meta: {
         keepAlive: false,
-        title: '一中墙'
+        title: "墙"
       }
     },
     {
-      path: '/edit',
+      path: "/edit",
       component: Edit,
       meta: {
         keepAlive: false,
-        title: '一中墙'
+        title: "墙"
       }
     },
     {
-      path: '/edit/:id',
+      path: "/edit/:id",
       component: Edit,
       meta: {
         keepAlive: false,
-        title: '一中墙'
+        title: "墙"
       }
     },
     {
-      path: '/message/:id',
+      path: "/message/:id",
       component: Message,
       meta: {
         keepAlive: false,
-        title: '一中墙'
+        title: "墙"
       }
     },
     {
-      path: '/login',
+      path: "/login",
       component: Login,
       meta: {
         keepAlive: false,
-        title: '登录'
+        title: "登录"
       }
     },
     {
-      path: '/notice',
+      path: "/notice",
       component: Notice,
       meta: {
         keepAlive: false,
-        title: '通知'
+        title: "通知"
       }
     },
     {
-      path: '/setting',
+      path: "/setting",
       component: Setting,
       meta: {
         keepAlive: true,
-        title: '一中墙'
+        title: "墙"
       },
-      children: [{
-          path: 'home',
+      children: [
+        {
+          path: "home",
           component: SettingHome
         },
         {
-          path: 'about',
+          path: "about",
           component: SettingAbout
-        },
+        }
       ]
-    },
+    }
   ]
-})
+});
