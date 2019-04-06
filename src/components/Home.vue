@@ -10,12 +10,12 @@
       <a
         class="nexmoe-shortcut-item blue"
         target="_blank"
-        href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://wall.chainwon.com/&title=%E4%B8%80%E4%B8%AD%E5%A2%99&desc=%E8%BF%99%E9%87%8C%E6%98%AF%E9%BB%84%E7%9F%B3%E4%B8%80%E4%B8%AD%E6%80%BB%E5%A2%99%EF%BC%8C%E5%9C%A8%E8%BF%99%E9%87%8C%EF%BC%8C%E4%BD%A0%E5%8F%AF%E4%BB%A5%E8%87%AA%E5%8A%A8%E4%B8%8B%E5%8D%95%EF%BC%8C%E5%8F%AF%E4%BB%A5%E6%A0%B9%E6%8D%AE%E4%B8%8D%E5%90%8C%E5%88%86%E7%B1%BB%E5%8F%91%E5%8D%95%E3%80%82%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E6%98%AF%EF%BC%8C%E4%B8%8B%E5%8D%95%E7%A7%92%E5%8F%91%E5%93%A6%EF%BC%81&summary=%E8%BF%99%E9%87%8C%E6%98%AF%E9%BB%84%E7%9F%B3%E4%B8%80%E4%B8%AD%E6%80%BB%E5%A2%99%EF%BC%8C%E5%9C%A8%E8%BF%99%E9%87%8C%EF%BC%8C%E4%BD%A0%E5%8F%AF%E4%BB%A5%E8%87%AA%E5%8A%A8%E4%B8%8B%E5%8D%95%EF%BC%8C%E5%8F%AF%E4%BB%A5%E6%A0%B9%E6%8D%AE%E4%B8%8D%E5%90%8C%E5%88%86%E7%B1%BB%E5%8F%91%E5%8D%95%E3%80%82%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E6%98%AF%EF%BC%8C%E4%B8%8B%E5%8D%95%E7%A7%92%E5%8F%91%E5%93%A6%EF%BC%81&site=https://wall.chainwon.com/&pics=https://ws2.sinaimg.cn/large/007edEi9ly1g0gvwuc0gkj30cy0n441b.jpg"
+        href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://wall.chainwon.com/&title=%E5%A2%99&desc=%E8%BF%99%E9%87%8C%E6%98%AF%E5%A2%99%EF%BC%8C%E5%9C%A8%E8%BF%99%E9%87%8C%EF%BC%8C%E4%BD%A0%E5%8F%AF%E4%BB%A5%E8%87%AA%E5%8A%A8%E4%B8%8B%E5%8D%95%EF%BC%8C%E5%8F%AF%E4%BB%A5%E6%A0%B9%E6%8D%AE%E4%B8%8D%E5%90%8C%E5%88%86%E7%B1%BB%E5%8F%91%E5%8D%95%E3%80%82%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E6%98%AF%EF%BC%8C%E4%B8%8B%E5%8D%95%E7%A7%92%E5%8F%91%E5%93%A6%EF%BC%81&summary=%E8%BF%99%E9%87%8C%E6%98%AF%E5%A2%99%EF%BC%8C%E5%9C%A8%E8%BF%99%E9%87%8C%EF%BC%8C%E4%BD%A0%E5%8F%AF%E4%BB%A5%E8%87%AA%E5%8A%A8%E4%B8%8B%E5%8D%95%EF%BC%8C%E5%8F%AF%E4%BB%A5%E6%A0%B9%E6%8D%AE%E4%B8%8D%E5%90%8C%E5%88%86%E7%B1%BB%E5%8F%91%E5%8D%95%E3%80%82%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E6%98%AF%EF%BC%8C%E4%B8%8B%E5%8D%95%E7%A7%92%E5%8F%91%E5%93%A6%EF%BC%81&site=https://wall.chainwon.com/&pics=https://ws2.sinaimg.cn/large/007edEi9ly1g0gvwuc0gkj30cy0n441b.jpg"
       >
         <div class="nexmoe-shortcut-icon">
           <i class="nexmoefont icon-share"></i>
         </div>
-        <div class="nexmoe-shortcut-name">分享一中墙</div>
+        <div class="nexmoe-shortcut-name">分享墙</div>
       </a>
     </div>
     <div class="nexmoe-categorys">
