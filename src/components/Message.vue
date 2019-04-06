@@ -64,7 +64,7 @@
         }).then(({
           value
         }) => {
-          this.axios.post(this.GLOBAL.API + '/controller/reply/', {
+          this.axios.post('/api/controller/reply/', {
               mid: this.item.mid,
               coid: coid,
               text: value,
@@ -100,7 +100,7 @@
       }
     },
     mounted () {
-      this.axios.get(this.GLOBAL.API + '/view/message/' + this.$route.params.id)
+      this.axios.get("/api/view/message/" + this.$route.params.id)
         .then((res) => {
           this.item = res.data;
           this.loading = false;

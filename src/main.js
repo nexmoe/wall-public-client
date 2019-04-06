@@ -13,9 +13,6 @@ import axios from 'axios';
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 Vue.prototype.$axios = axios;
 
-import global from '@/components/Global'
-Vue.prototype.GLOBAL = global
-
 import VueAxios from 'vue-axios'
 
 import VueLazyload from 'vue-lazyload'

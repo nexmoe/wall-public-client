@@ -16,7 +16,7 @@
       <el-input type="textarea" placeholder="请输入内容" v-model="edit">
       </el-input>
       <div class="nexmoe-tool">
-        <el-upload style="float: left;" :action="this.GLOBAL.API + '/controller/picupload'" accept="image/*"
+        <el-upload style="float: left;" :action="'/api/controller/picupload'" accept="image/*"
           :before-upload="beforePicUpload" :on-success="handlePicSuccess" :show-file-list="false" multiple>
           <el-button icon="el-icon-picture-outline" circle></el-button>
         </el-upload>
@@ -49,7 +49,7 @@ import Article from '@/components/item/Article'
       }
     },
     created: function () {
-      this.axios.get(this.GLOBAL.API + '/view/user')
+      this.axios.get("/api/view/user")
         .then((res) => {
           if (res.data['state'] == 0) {
             this.$router.push('/login')
@@ -58,7 +58,7 @@ import Article from '@/components/item/Article'
         .catch(function (error) {
           console.log(error)
         });
-      this.axios.get(this.GLOBAL.API + '/view/category')
+      this.axios.get("/api/view/category")
         .then((res) => {
           this.category = res.data;
         })
@@ -82,7 +82,7 @@ import Article from '@/components/item/Article'
       },
       send() {
         this.onSubmit()
-        this.axios.post(this.GLOBAL.API + '/controller/edit/', {
+        this.axios.post("/api/controller/edit/", {
             category: this.value,
             article: this.article,
             anonymous: this.anonymous,

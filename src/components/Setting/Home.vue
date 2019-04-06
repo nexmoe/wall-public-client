@@ -33,7 +33,7 @@
       }
     },
     created: function () {
-      this.axios.get(this.GLOBAL.API+'/view/user')
+      this.axios.get("/api/view/user")
         .then((res) => {
           this.item = res.data;
           if(this.item['state']==0){

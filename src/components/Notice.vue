@@ -59,7 +59,7 @@ export default {
   },
   mounted: function() {
     this.axios
-      .get(this.GLOBAL.API + "/view/notice")
+      .get("/api/view/notice")
       .then(res => {
         this.notice = res.data;
         this.loading = false;

@@ -32,7 +32,7 @@
           inputPattern: /\S/,
           inputErrorMessage: '内容不可为空'
         }).then(({ value }) => {
-          this.axios.post(this.GLOBAL.API+'/controller/reply/', {
+          this.axios.post("/api/controller/reply/", {
             mid: this.$route.params.id,
             coid: coid,
             text: value,

@@ -20,7 +20,7 @@
     },
     methods: {
       onSubmit() {
-        this.axios.post(this.GLOBAL.API+'/controller/cookie/',{
+        this.axios.post('/api/controller/cookie/',{
             qq: this.input,
         })
         .then((res) => {

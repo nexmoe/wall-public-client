@@ -45,7 +45,7 @@ export default {
   },
   mounted: function() {
     this.axios
-      .get(this.GLOBAL.API + "/view/category/" + this.$route.params.id)
+      .get("/api/view/category/" + this.$route.params.id)
       .then(res => {
         this.message = res.data.message;
         this.loading = false;

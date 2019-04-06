@@ -72,7 +72,7 @@ export default {
   },
   mounted: function() {
     this.axios
-      .get(this.GLOBAL.API + "/view/category")
+      .get("/api/view/category")
       .then(res => {
         this.category = res.data;
       })
@@ -80,7 +80,7 @@ export default {
         console.log(error);
       });
     this.axios
-      .get(this.GLOBAL.API + "/view/message")
+      .get("/api/view/message")
       .then(res => {
         this.message = res.data;
         this.loading = false;

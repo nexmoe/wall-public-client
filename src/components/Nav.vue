@@ -27,7 +27,7 @@
       }
     },
     created: function () {
-      this.axios.get(this.GLOBAL.API+'/view/notice/true')
+      this.axios.get("/api/view/notice/true")
         .then((res) => {
           this.count = res.data;
           console.log(res.data)
